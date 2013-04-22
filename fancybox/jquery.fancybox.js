@@ -1766,6 +1766,7 @@
 
 			if (this.el) {
 				this.el.removeClass('fancybox-lock');
+				$("#unityPlayer").removeClass("unityHide");
 			}
 		},
 
@@ -1816,7 +1817,7 @@
 		beforeShow : function(opts, obj) {
 			if (obj.locked) {
 				this.el.addClass('fancybox-lock');
-
+				$("#unityPlayer").addClass("unityHide");
 				if (this.margin !== false) {
 					$('body').css('margin-right', getScalar( this.margin ) + obj.scrollbarWidth);
 				}

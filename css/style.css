@@ -30,6 +30,13 @@ body {
   background: #fff url(../images/background.png);
 }
 
+.unityHide embed{
+	height: 0px !important;
+}
+.unityHide {
+	height: 600px;
+}
+
 /*TYPOGRAPHY*/
 /*----------------------------------------*/
 h1, h2, h3, h4{
@@ -343,6 +350,12 @@ a.project-image {
 	#unityPlayer embed {
 		width: 460px !important;
 		height: 300px !important;
+	}
+	#unityPlayer.unityHide embed {
+		height: 0px !important;
+	}
+	#unityPlayer.unityHide {
+		height: 300px;
 	}
 }
 
