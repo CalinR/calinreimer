@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calin Reimer - Goldeneye Fan Remake</title>
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<link rel="stylesheet" href="../fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0;">
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+		<script type="text/javascript" src="../fancybox/jquery.fancybox.pack.js"></script>
+		<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		-->
+		</script>
+		<script type="text/javascript">
+		<!--
+			var config = {
+				width: 940, 
+				height: 600,
+				params: { enableDebugging:"0" }
+				
+			};
+			var u = new UnityObject2(config);
+
+			jQuery(function() {
+
+				var $missingScreen = jQuery("#unityPlayer").find(".missing");
+				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
+				$missingScreen.hide();
+				$brokenScreen.hide();
+				
+				u.observeProgress(function (progress) {
+					switch(progress.pluginStatus) {
+						case "broken":
+							$brokenScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$brokenScreen.show();
+						break;
+						case "missing":
+							$missingScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$missingScreen.show();
+						break;
+						case "installed":
+							$missingScreen.remove();
+						break;
+						case "first":
+						break;
+					}
+				});
+				u.initPlugin(jQuery("#unityPlayer")[0], "goldeneye.unity3d");
+			});
+		-->
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".fancybox").fancybox();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<div class="container clearfix">
+				<div class="logo">
+					<h1><a href="../index.html">Calin Reimer</a></h1>
+					<h2>Graphics, Web &amp; Game Designer</h2>
+				</div>
+				<a href="../pdf/resume.pdf" class="button big"><i class="icon-download-alt"></i>Download Resume</a>
+			</div>
+		</div>
+
+		<div class="container clearfix">
+			<ul class="breadcrumb">
+				<li class="first"><a href="../index.html"><i class="icon-home"></i> Home - Portfolio</a></li>
+				<li class="second">Goldeneye Fan Remake</li>
+			</ul>
+			<h3>Goldeneye Fan Remake</h3>
+			<h4>3D Modeling</h4>
+			<p>In this personal project, I'm recreating the first level of Goldeneye in <strong>Unity3D</strong>. All objects have been remodeled using <strong>Maya</strong> and textures have been created using <strong>Photoshop</strong>. You can view the work in progress below.</p>
+			<div class="content unity-container">
+				<div id="unityPlayer">
+					<div class="missing">
+						<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+							<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+						</a>
+					</div>
+					<div class="broken">
+						<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
+							<img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
+						</a>
+					</div>
+				</div>
+			</div>
+			<p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+			<h3>Screenshots</h3>
+			<a href="screenshot-1.jpg" class="project-image left fancybox"><img src="screenshot-1.jpg" alt="Goldeneye Fan Remake" class="inner-image"/></a>
+			<a href="screenshot-2.jpg" class="project-image right fancybox"><img src="screenshot-2.jpg" alt="Goldeneye Fan Remake" class="inner-image"/></a>
+		</div>
+
+		<div id="footer">
+			<div class="container">
+				<p>
+					<strong><i class="icon-envelope-alt"></i> Email: </strong><a href="mailto:calin.reimer@gmail.com" style="margin-right: 20px;">calin.reimer@gmail.com</a>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
